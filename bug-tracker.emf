@@ -1,0 +1,26 @@
+@namespace(uri="bugtracker", prefix="")
+package bugtracker;
+
+@gmf.diagram
+class BugTracker{
+	val Product[*] products;
+}
+
+@gmf.node(label="name")
+class Product {
+	attr String name;
+	attr String currentVersion;
+	attr String[*] versions;
+	val Issue[*] issues;
+}
+
+enum Types {
+	bug;
+	enhancement;
+}
+
+class Issue {
+	attr Types type;
+	attr String issueID;
+}
+
