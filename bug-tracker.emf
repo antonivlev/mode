@@ -3,24 +3,38 @@ package bugtracker;
 
 @gmf.diagram
 class BugTracker{
-	val Product[*] products;
+	val Product[*] product;
 }
 
 @gmf.node(label="name")
 class Product {
 	attr String name;
-	attr String currentVersion;
-	attr String[*] versions;
-	val Issue[*] issues;
+	
+	val Version[*] version;
+	val Issue[*] issue;
 }
 
-enum Types {
-	bug;
-	enhancement;
+class Version {
+	attr String name;
 }
+
+
 
 class Issue {
-	attr Types type;
 	attr String issueID;
+	attr String title;
+	attr String description;
+	attr Boolean isOpen;
+	
+	ref Issue[*] duplicates;
+	ref Version[*] versions;
+}
+
+class Bug extends Issue {
+	ref Issue[*] blockedIssues;
+}
+
+class Enhancement extends Issue {
+	ref Enhancement[*] blockedEnhancements;
 }
 

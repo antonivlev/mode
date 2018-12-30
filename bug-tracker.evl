@@ -1,11 +1,13 @@
 context Product {
 	constraint C1 {
-		check: self.versions.includes(self.currentVersion)
-		message: self.currentVersion + " is not one of the specified versions: " + self.versions
+		check: self.possibleVersion.includes(self.currentVersion)
+		message: self.currentVersion + " is not in the specified versions: " + self.possibleVersion
 	}
 
-	constraint C1 {
+/*	constraint C1 {
 		check: self.anton <> "hi" 
 		message: "oi oi"
 	}
+*/
 }
+
