@@ -10,17 +10,18 @@ class BugTracker{
 @gmf.node(label="name")
 class Product {
 	attr String name;
-	
+	@gmf.compartment
 	val Version[*] version;
+	@gmf.compartment
 	val Issue[*] issue;
 }
 
+@gmf.node(label="name")
 class Version {
 	attr String name;
 }
 
-
-
+@gmf.node(label = "issueID")
 abstract class Issue {
 	attr String issueID;
 	attr String title;
@@ -28,6 +29,7 @@ abstract class Issue {
 	attr Boolean isOpen;
 	
 	ref Issue[*] duplicates;
+	@gmf.link(style="dot")
 	ref Version[*] versions;
 	
 	ref Person reportedBy;
