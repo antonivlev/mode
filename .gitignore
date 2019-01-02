@@ -7,6 +7,7 @@
 !*.evl
 !*.egx
 !*.egl
+!*.model
 
 # ...even if they are in subdirectories
 !*/

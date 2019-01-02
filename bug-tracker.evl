@@ -14,6 +14,7 @@ context Product {
 context Issue {
 	constraint UniqueID {
 		check: not Issue.all().excluding(self).collect(i|i.issueID).includes(self.issueID)
+		//check: self.hey()
 		message: self.issueID + " is not unique"
 	}
 	constraint NoBlockingCycles {
@@ -26,6 +27,11 @@ context Issue {
 	}
 }
 
+operation Issue hey() {
+	"".println("hi");
+	Issue.all().excluding(self).collect(i|i.issueID).println();
+	return true;
+}
 
 
 

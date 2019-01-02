@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<BugTracker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="bugtracker" xmi:id="_kjh1MA6vEemLHf9PMabrCg">
+  <product xmi:id="_lYlN4A6vEemLHf9PMabrCg">
+    <issue xsi:type="Bug" xmi:id="_l2NlEA6vEemLHf9PMabrCg" issueID="oof"/>
+    <issue xsi:type="Bug" xmi:id="_mQshoA6vEemLHf9PMabrCg" issueID="oof"/>
+  </product>
+</BugTracker>
