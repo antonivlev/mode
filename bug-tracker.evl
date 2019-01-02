@@ -1,13 +1,53 @@
 context Product {
-	constraint C1 {
-		check: self.possibleVersion.includes(self.currentVersion)
+/*	constraint C1 {
+		check: self.version.includes(self.currentVersion)
 		message: self.currentVersion + " is not in the specified versions: " + self.possibleVersion
 	}
 
-/*	constraint C1 {
+	constraint C1 {
 		check: self.anton <> "hi" 
 		message: "oi oi"
 	}
 */
 }
+
+context Issue {
+	constraint UniqueID {
+		check: not Issue.all().excluding(self).collect(i|i.issueID).includes(self.issueID)
+		message: self.issueID + " is not unique"
+	}
+	constraint NoBlockingCycles {
+		check: not self.closure(issue | issue.blockedIssues).includes(self)
+		message: self.issueID + " blocks itself"
+	}
+	constraint DuplicateOfSelf {
+		check: not self.duplicates.includes(self)
+		message: self.issueID + " duplicatesuh itself"
+	}
+}
+
+
+
+
+/*operation Issue isIssueInDescendants(issue, parent) {
+	// parent doesnt block anything
+	if (parent.blockedIssues.size() == 0) {
+		"".println(issue.issueID, ": i have no desc");
+		return false;
+	} 
+	// parent blocks bug
+	else if (not parent.blockedIssues.contains(bug)) {
+		return false;
+	}
+	
+	// parent doesnt block bug, but has descendants,
+	// check them
+	else {
+		var p = parent.closure(parentIssue | parentIssue.blockedIssues);
+		p.println();
+		return false;
+	}
+}*/
+
+
 

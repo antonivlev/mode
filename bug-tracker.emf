@@ -20,7 +20,7 @@ class Version {
 
 
 
-class Issue {
+abstract class Issue {
 	attr String issueID;
 	attr String title;
 	attr String description;
@@ -35,6 +35,6 @@ class Bug extends Issue {
 }
 
 class Enhancement extends Issue {
-	ref Enhancement[*] blockedEnhancements;
+	ref Enhancement[*] blockedIssues;
 }
 
