@@ -1,0 +1,7 @@
+<h1>I've been generated</h1>
+<h3>hi</h3>
+<ul>
+[%for (prod in tracker.product) { %]
+  <li>[%=prod.name%]
+[%}%]
+</ul>

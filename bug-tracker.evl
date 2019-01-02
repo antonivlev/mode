@@ -22,7 +22,7 @@ context Issue {
 	}
 	constraint DuplicateOfSelf {
 		check: not self.duplicates.includes(self)
-		message: self.issueID + " duplicatesuh itself"
+		message: self.issueID + " duplicates itself"
 	}
 }
 

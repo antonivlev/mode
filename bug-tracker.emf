@@ -4,6 +4,7 @@ package bugtracker;
 @gmf.diagram
 class BugTracker{
 	val Product[*] product;
+	val Person[*] person;
 }
 
 @gmf.node(label="name")
@@ -28,6 +29,9 @@ abstract class Issue {
 	
 	ref Issue[*] duplicates;
 	ref Version[*] versions;
+	
+	ref Person reportedBy;
+	ref Person[*] fixers;
 }
 
 class Bug extends Issue {
@@ -38,3 +42,16 @@ class Enhancement extends Issue {
 	ref Enhancement[*] blockedIssues;
 }
 
+
+
+class Comment {
+	attr String commentID;
+	attr String commentText;
+	
+	val Comment[*] reply;
+	ref Person author;
+}
+
+class Person {
+	attr String username;
+}

@@ -1,0 +1,5 @@
+rule BugTracker2Page
+	transform tracker : BugTracker {
+		template: "bugTracker2Page.egl"
+		target: "gen/index.html"
+	}
