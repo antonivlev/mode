@@ -1,7 +1,6 @@
-<h1>I've been generated</h1>
-<h3>hi</h3>
+<h3>Click on a product</h3>
 <ul>
 [%for (prod in tracker.product) { %]
-  <li>[%=prod.name%]
+  <li><a href="[%=prod.name%]_page.html">[%=prod.name%]</a>
 [%}%]
 </ul>

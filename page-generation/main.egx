@@ -3,3 +3,9 @@ rule BugTracker2Page
 		template: "bugTracker2Page.egl"
 		target: "gen/index.html"
 	}
+	
+rule Product2Page
+	transform product : Product {
+		template: "product2Page.egl"
+		target: "gen/"+product.name+"_page.html"
+	}

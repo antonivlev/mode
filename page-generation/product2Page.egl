@@ -1,0 +1,9 @@
+<h1>[%=product.name%]</h1>
+<h3></h3>
+<ul>
+[%var sortedIssues = product.issue.sortBy( issue | -issue.closure(issue | issue.blockedIssues).size() ); %]
+[%for (issue in sortedIssues) { %]
+  [%var num_blocks_total = issue.closure(issue | issue.blockedIssues).size(); %]
+  <li><a href="[%=issue.issueID%]_page.html">[%=issue.issueID%] [%=num_blocks_total%]</a>
+[%}%]
+</ul>

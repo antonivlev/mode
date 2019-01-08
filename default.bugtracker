@@ -4,14 +4,14 @@
     <version name="vers1"/>
     <version name="vers2"/>
     <version name="vers3"/>
-    <issue xsi:type="Bug" issueID="make the thing" isOpen="true" versions="//@product.0/@version.2" blockedIssues="//@product.0/@issue.2"/>
-    <issue xsi:type="Bug" issueID="UI breaks on startup" isOpen="true" versions="//@product.0/@version.0 //@product.0/@version.1" blockedIssues="//@product.0/@issue.0"/>
-    <issue xsi:type="Bug" issueID="hop hey" isOpen="true" versions="//@product.0/@version.1" blockedIssues="//@product.0/@issue.3"/>
-    <issue xsi:type="Bug" issueID="ooh" isOpen="true" versions="//@product.0/@version.2" blockedIssues="//@product.0/@issue.4"/>
+    <issue xsi:type="Bug" issueID="make the thing" versions="//@product.0/@version.2" blockedIssues="//@product.0/@issue.2"/>
+    <issue xsi:type="Bug" issueID="UI breaks on startup" versions="//@product.0/@version.0 //@product.0/@version.1" blockedIssues="//@product.0/@issue.0"/>
+    <issue xsi:type="Bug" issueID="hop hey" versions="//@product.0/@version.1" blockedIssues="//@product.0/@issue.3"/>
+    <issue xsi:type="Bug" issueID="ooh" versions="//@product.0/@version.2" blockedIssues="//@product.0/@issue.4"/>
     <issue xsi:type="Enhancement" issueID="make things preety" isOpen="false"/>
   </product>
   <product name="program 12">
-    <issue xsi:type="Bug" issueID="some other bug" isOpen="true"/>
+    <issue xsi:type="Bug" issueID="some other bug"/>
   </product>
   <product name="hohohoho">
     <issue xsi:type="Bug" issueID="bugiuwbde" isOpen="false"/>
