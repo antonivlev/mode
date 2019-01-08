@@ -6,7 +6,7 @@ rule TransformProducts
   transform sourceProd : source!Product
   to targetProd : 
   	tget!Product { 
-  		"-- transforming products".println();
+  		"".println("transforming product: ", sourceProd.name);
   		
   		targetProd.name = sourceProd.name;
  		targetProd.issue.addAll(sourceProd.issue.equivalent());
@@ -16,9 +16,38 @@ rule TransformBugs
   transform sourceBug : source!Bug
   to targetBug : 
   	tget!Bug {
-	  	"-- transforming issues".println();
+  		if (sourceBug.isOpen) {
+		  	"".println("  copying bug: ", sourceBug.issueID);
+	  		
+	  		targetBug.issueID = sourceBug.issueID;
+	 		targetBug.title = sourceBug.title;
+	  		targetBug.isOpen = sourceBug.isOpen;
+	 		targetBug.duplicates = sourceBug.duplicates;
+	 		targetBug.versions = sourceBug.versions;
+	 		targetBug.reportedBy = sourceBug.reportedBy;
+	 		targetBug.fixers = sourceBug.fixers; 		 		 		
+	
+	 		targetBug.blockedIssues = sourceBug.blockedIssues; 		 		 		 		
+  		} else {
+		  	"".println("  bug: ", sourceBug.issueID, " closed. Not copying.");  			
+  		}
+	}
+
+rule TransformEnhancements 
+  transform sourceEnh : source!Enhancement
+  to targetEnh : 
+  	tget!Enhancement {
+	  	"".println("  transforming enhancement: ", sourceEnh.issueID);
   		
-  		targetBug.issueID = sourceBug.issueID;
+  		targetEnh.issueID = targetEnh.issueID;
+ 		targetEnh.title = targetEnh.title;
+  		targetEnh.isOpen = targetEnh.isOpen;
+ 		targetEnh.duplicates = targetEnh.duplicates;
+ 		targetEnh.versions = targetEnh.versions;
+ 		targetEnh.reportedBy = targetEnh.reportedBy;
+ 		targetEnh.fixers = targetEnh.fixers; 		 		 		
+
+ 		targetEnh.blockedIssues = sourceEnh.blockedIssues; 		 		 		 		
 	}
 
 post {

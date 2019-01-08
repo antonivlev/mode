@@ -26,7 +26,7 @@ abstract class Issue {
 	attr String issueID;
 	attr String title;
 	attr String description;
-	attr Boolean isOpen;
+	attr Boolean isOpen = true;
 	
 	ref Issue[*] duplicates;
 	@gmf.link(style="dot")

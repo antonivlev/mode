@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="ASCII"?>
-<BugTracker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mockbugtracker" xsi:schemaLocation="mockbugtracker mock-metamodel.ecore">
-  <product name="some prod">
-    <issue xsi:type="Bug" issueID="nooo"/>
+<BugTracker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mockbugtracker" xmlns:_1="bugtracker" xsi:schemaLocation="mockbugtracker mock-metamodel.ecore">
+  <product name="win10">
+    <issue xsi:type="Bug" issueID="make the thing" isOpen="true">
+      <versions href="default.bugtracker#//@product.0/@version.2"/>
+      <blockedIssues xsi:type="_1:Bug" href="default.bugtracker#//@product.0/@issue.2"/>
+    </issue>
+    <issue xsi:type="Bug" issueID="UI breaks on startup" isOpen="true">
+      <versions href="default.bugtracker#//@product.0/@version.0"/>
+      <versions href="default.bugtracker#//@product.0/@version.1"/>
+      <blockedIssues xsi:type="_1:Bug" href="default.bugtracker#//@product.0/@issue.0"/>
+    </issue>
+    <issue xsi:type="Bug" issueID="hop hey" isOpen="true">
+      <versions href="default.bugtracker#//@product.0/@version.1"/>
+      <blockedIssues xsi:type="_1:Bug" href="default.bugtracker#//@product.0/@issue.3"/>
+    </issue>
+    <issue xsi:type="Bug" issueID="ooh" isOpen="true">
+      <versions href="default.bugtracker#//@product.0/@version.2"/>
+      <blockedIssues xsi:type="_1:Enhancement" href="default.bugtracker#//@product.0/@issue.4"/>
+    </issue>
+    <issue xsi:type="Enhancement"/>
+  </product>
+  <product name="program 12">
+    <issue xsi:type="Bug" issueID="some other bug" isOpen="true"/>
   </product>
 </BugTracker>
