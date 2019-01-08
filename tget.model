@@ -18,7 +18,6 @@
       <versions href="default.bugtracker#//@product.0/@version.2"/>
       <blockedIssues xsi:type="_1:Enhancement" href="default.bugtracker#//@product.0/@issue.4"/>
     </issue>
-    <issue xsi:type="Enhancement"/>
   </product>
   <product name="program 12">
     <issue xsi:type="Bug" issueID="some other bug" isOpen="true"/>

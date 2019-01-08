@@ -6,52 +6,53 @@ rule TransformProducts
   transform sourceProd : source!Product
   to targetProd : 
   	tget!Product { 
-  		"".println("transforming product: ", sourceProd.name);
+  		guard : not sourceProd.issue.forAll(i|not i.isOpen)
   		
-  		targetProd.name = sourceProd.name;
- 		targetProd.issue.addAll(sourceProd.issue.equivalent());
+  		"".println("transforming product: ", sourceProd.name);
+	  	targetProd.name = sourceProd.name;
+	 	targetProd.issue.addAll(sourceProd.issue.select(i|i.isOpen).equivalent()); 		
 	}
+	
 
 rule TransformBugs 
   transform sourceBug : source!Bug
   to targetBug : 
   	tget!Bug {
-  		if (sourceBug.isOpen) {
-		  	"".println("  copying bug: ", sourceBug.issueID);
-	  		
-	  		targetBug.issueID = sourceBug.issueID;
-	 		targetBug.title = sourceBug.title;
-	  		targetBug.isOpen = sourceBug.isOpen;
-	 		targetBug.duplicates = sourceBug.duplicates;
-	 		targetBug.versions = sourceBug.versions;
-	 		targetBug.reportedBy = sourceBug.reportedBy;
-	 		targetBug.fixers = sourceBug.fixers; 		 		 		
-	
-	 		targetBug.blockedIssues = sourceBug.blockedIssues; 		 		 		 		
-  		} else {
-		  	"".println("  bug: ", sourceBug.issueID, " closed. Not copying.");  			
-  		}
+		guard : sourceBug.isOpen
+
+		"".println("  copying bug: ", sourceBug.issueID);
+		
+		targetBug.issueID = sourceBug.issueID;
+		targetBug.title = sourceBug.title;
+		targetBug.isOpen = sourceBug.isOpen;
+		targetBug.duplicates = sourceBug.duplicates;
+		targetBug.versions = sourceBug.versions;
+		targetBug.reportedBy = sourceBug.reportedBy;
+		targetBug.fixers = sourceBug.fixers; 		 		 		
+
+		targetBug.blockedIssues = sourceBug.blockedIssues; 		 		 		 		
 	}
 
 rule TransformEnhancements 
   transform sourceEnh : source!Enhancement
   to targetEnh : 
   	tget!Enhancement {
-	  	"".println("  transforming enhancement: ", sourceEnh.issueID);
-  		
-  		targetEnh.issueID = targetEnh.issueID;
- 		targetEnh.title = targetEnh.title;
-  		targetEnh.isOpen = targetEnh.isOpen;
- 		targetEnh.duplicates = targetEnh.duplicates;
- 		targetEnh.versions = targetEnh.versions;
- 		targetEnh.reportedBy = targetEnh.reportedBy;
- 		targetEnh.fixers = targetEnh.fixers; 		 		 		
-
- 		targetEnh.blockedIssues = sourceEnh.blockedIssues; 		 		 		 		
+		guard : sourceEnh.isOpen
+		
+		"".println("  transforming enhancement: ", sourceEnh.issueID);
+	  		
+	  	targetEnh.issueID = targetEnh.issueID;
+	 	targetEnh.title = targetEnh.title;
+	  	targetEnh.isOpen = targetEnh.isOpen;
+	 	targetEnh.duplicates = targetEnh.duplicates;
+	 	targetEnh.versions = targetEnh.versions;
+	 	targetEnh.reportedBy = targetEnh.reportedBy;
+	 	targetEnh.fixers = targetEnh.fixers; 		 		 		
+	
+	 	targetEnh.blockedIssues = sourceEnh.blockedIssues; 		 		 		 		
 	}
 
 post {
-	// Put all produced tables under a root Content element
 	var root : new tget!BugTracker;
 	root.product.addAll(tget!Product.all);
 	"finish transformation".println();

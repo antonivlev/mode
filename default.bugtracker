@@ -13,4 +13,7 @@
   <product name="program 12">
     <issue xsi:type="Bug" issueID="some other bug" isOpen="true"/>
   </product>
+  <product name="hohohoho">
+    <issue xsi:type="Bug" issueID="bugiuwbde" isOpen="false"/>
+  </product>
 </BugTracker>
