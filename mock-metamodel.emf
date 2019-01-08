@@ -1,4 +1,4 @@
-@namespace(uri="bugtracker", prefix="")
+@namespace(uri="mockbugtracker", prefix="")
 package bugtracker;
 
 @gmf.diagram

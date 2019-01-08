@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<BugTracker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mockbugtracker" xsi:schemaLocation="mockbugtracker mock-metamodel.ecore">
+  <product name="some prod">
+    <issue xsi:type="Bug" issueID="nooo"/>
+  </product>
+</BugTracker>

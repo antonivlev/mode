@@ -1,0 +1,30 @@
+pre {
+  "start transformations".println();
+}
+
+rule TransformProducts 
+  transform sourceProd : source!Product
+  to targetProd : 
+  	tget!Product { 
+  		"-- transforming products".println();
+  		
+  		targetProd.name = sourceProd.name;
+ 		targetProd.issue.addAll(sourceProd.issue.equivalent());
+	}
+
+rule TransformBugs 
+  transform sourceBug : source!Bug
+  to targetBug : 
+  	tget!Bug {
+	  	"-- transforming issues".println();
+  		
+  		targetBug.issueID = sourceBug.issueID;
+	}
+
+post {
+	// Put all produced tables under a root Content element
+	var root : new tget!BugTracker;
+	root.product.addAll(tget!Product.all);
+	"finish transformation".println();
+}
+

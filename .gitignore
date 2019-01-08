@@ -8,6 +8,8 @@
 !*.egx
 !*.egl
 !*.model
+!*.etl
+!*.bugtracker
 
 # ...even if they are in subdirectories
 !*/

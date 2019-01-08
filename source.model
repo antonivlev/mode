@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<BugTracker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="bugtracker" xmi:id="_fgr5IBNfEemVlJ9yg3U8SQ">
+  <product xmi:id="_ggd7IBNfEemVlJ9yg3U8SQ" name="some prod">
+    <issue xsi:type="Bug" xmi:id="_g53SkBNfEemVlJ9yg3U8SQ" issueID="nooo"/>
+  </product>
+</BugTracker>
