@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<BugTracker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="bugtracker">
+<BugTracker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="bugtracker" xsi:schemaLocation="bugtracker bug-tracker.ecore">
   <product name="windows 10">
     <version name="v1"/>
     <version name="v2"/>
@@ -7,9 +7,9 @@
       <versions href="default.bugtracker#//@product.0/@version.0"/>
       <versions href="default.bugtracker#//@product.0/@version.1"/>
       <fixers href="default.bugtracker#//@person.0"/>
-      <comment commentID="comment0">
-        <reply commentID="reply0"/>
-        <reply commentID="reply1"/>
+      <comment commentID="comment0" commentText="This is commenting something">
+        <reply commentID="reply0" commentText="yes it is"/>
+        <reply commentID="reply1" commentText="no it isnt"/>
       </comment>
       <blockedIssues xsi:type="Bug" href="default.bugtracker#//@product.0/@issue.1"/>
       <blockedIssues xsi:type="Enhancement" href="default.bugtracker#//@product.0/@issue.3"/>
@@ -18,7 +18,7 @@
       <versions href="default.bugtracker#//@product.0/@version.1"/>
       <fixers href="default.bugtracker#//@person.2"/>
       <fixers href="default.bugtracker#//@person.1"/>
-      <comment commentID="comm12"/>
+      <comment commentID="comm12" commentText="something here"/>
       <blockedIssues xsi:type="Bug" href="default.bugtracker#//@product.0/@issue.2"/>
     </issue>
     <issue xsi:type="Bug" issueID="buttons wont press"/>
@@ -27,5 +27,4 @@
   <person username="anton"/>
   <person username="connor"/>
   <person username="jack"/>
-  <person username="alice"/>
 </BugTracker>

@@ -1,3 +1,4 @@
+
 <style>
 html {
 	font-family: monospace;
@@ -27,8 +28,12 @@ table, td {
   	<td>[%=i.description%]</td>
   </tr>
   <tr>
-	<td>Open?: </td>
-  	<td>[%=i.isOpen%]</td>
+	<td>Status: </td>
+  	[% if(i.isOpen) {%]
+  	<td style='background-color:green'>open</td>
+  	[%} else {%]
+  	<td style='background-color:red'>closed</td>
+  	[%}%]
   </tr>
 </table>
 

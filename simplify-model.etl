@@ -20,6 +20,7 @@ rule TransformPeople
 	transform sourcePerson : source!Person
 	to targetPerson :
 		tget!Person {
+			guard : not source!Issue.all().select(i|i.reportedBy = sourcePerson or i.fixers.contains(sourcePerson)).select(i | i.isOpen).isEmpty()
 	  		"".println("transforming person: ", sourcePerson.username);
 	  		targetPerson.username = sourcePerson.username;
 		}

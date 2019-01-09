@@ -23,9 +23,9 @@ class Version {
 
 @gmf.node(label = "issueID")
 abstract class Issue {
-	attr String issueID;
-	attr String title;
-	attr String description;
+	attr String issueID = "";
+	attr String title = "";
+	attr String description = "";
 	attr Boolean isOpen = true;
 
 	@gmf.link(style="dot")	

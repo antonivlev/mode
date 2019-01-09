@@ -1,20 +1,10 @@
-context Product {
-/*	constraint C1 {
-		check: self.version.includes(self.currentVersion)
-		message: self.currentVersion + " is not in the specified versions: " + self.possibleVersion
-	}
-
-	constraint C1 {
-		check: self.anton <> "hi" 
-		message: "oi oi"
-	}
+/*
+- The textual description of an issue must be at least 10 characters long
 */
-}
 
 context Issue {
 	constraint UniqueID {
 		check: not Issue.all().excluding(self).collect(i|i.issueID).includes(self.issueID)
-		//check: self.hey()
 		message: self.issueID + " is not unique"
 	}
 	constraint NoBlockingCycles {
@@ -25,35 +15,23 @@ context Issue {
 		check: not self.duplicates.includes(self)
 		message: self.issueID + " duplicates itself"
 	}
+	constraint NoOpenBlockers {
+		guard: not self.isOpen
+		check: not Issue.all().select(i|i.blockedIssues.includes(self)).collect(i|i.isOpen).includes(true)
+		message: self.issueID + "is closed, but has open blockers: " + Issue.all().select(i|i.blockedIssues.includes(self)).select(i|i.isOpen).collect(i|i.issueID)
+	}
+	constraint DescriptionLength {
+		check: not self.description.length < 10
+		message: "The description for" + self.issueID + " is too short"
+	}
 }
 
-operation Issue hey() {
-	"".println("hi");
-	Issue.all().excluding(self).collect(i|i.issueID).println();
+operation hey(s) {
+	s.println();
+	Issue.all().select(i|i.blockedIssues.includes(s)).collect(i|i.isOpen).println();
+	//Issue.all().select(i|i.blockedIssues.includes(self)).collect(i|i.isOpen).includes(true);
 	return true;
 }
-
-
-
-/*operation Issue isIssueInDescendants(issue, parent) {
-	// parent doesnt block anything
-	if (parent.blockedIssues.size() == 0) {
-		"".println(issue.issueID, ": i have no desc");
-		return false;
-	} 
-	// parent blocks bug
-	else if (not parent.blockedIssues.contains(bug)) {
-		return false;
-	}
-	
-	// parent doesnt block bug, but has descendants,
-	// check them
-	else {
-		var p = parent.closure(parentIssue | parentIssue.blockedIssues);
-		p.println();
-		return false;
-	}
-}*/
 
 
 

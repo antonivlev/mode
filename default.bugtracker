@@ -3,20 +3,21 @@
   <product name="windows 10">
     <version name="v1"/>
     <version name="v2"/>
-    <issue xsi:type="Bug" issueID="ui doesnt work" versions="//@product.0/@version.0 //@product.0/@version.1" reportedBy="//@person.1" fixers="//@person.0" blockedIssues="//@product.0/@issue.1 //@product.0/@issue.3">
-      <comment commentID="comment0" author="//@person.1">
-        <reply commentID="reply0" author="//@person.0"/>
-        <reply commentID="reply1" author="//@person.1"/>
+    <issue xsi:type="Bug" issueID="ui doesnt work" description="The UI fails to start up completely" versions="//@product.0/@version.0 //@product.0/@version.1" reportedBy="//@person.1" fixers="//@person.0" blockedIssues="//@product.0/@issue.1 //@product.0/@issue.3">
+      <comment commentID="comment0" commentText="This is commenting something" author="//@person.1">
+        <reply commentID="reply0" commentText="yes it is" author="//@person.0"/>
+        <reply commentID="reply1" commentText="no it isnt" author="//@person.1"/>
       </comment>
     </issue>
-    <issue xsi:type="Bug" issueID="windows wont close" versions="//@product.0/@version.1" reportedBy="//@person.0" fixers="//@person.2 //@person.1" blockedIssues="//@product.0/@issue.2">
-      <comment commentID="comm12" author="//@person.2"/>
+    <issue xsi:type="Bug" issueID="windows wont close" description="On pressing buttons screen flashes." versions="//@product.0/@version.1" reportedBy="//@person.0" fixers="//@person.2 //@person.1" blockedIssues="//@product.0/@issue.2">
+      <comment commentID="comm12" commentText="something here" author="//@person.2"/>
     </issue>
     <issue xsi:type="Bug" issueID="buttons wont press" reportedBy="//@person.2"/>
     <issue xsi:type="Enhancement" issueID="make things green" reportedBy="//@person.2" fixers="//@person.1"/>
   </product>
   <product name="windows 9">
-    <issue xsi:type="Bug" issueID="something closed" isOpen="false" reportedBy="//@person.3"/>
+    <issue xsi:type="Bug" issueID="something closed" description="It closed" isOpen="false" reportedBy="//@person.3"/>
+    <issue xsi:type="Bug" issueID="issue47" description="The font is wrong." isOpen="false" blockedIssues="//@product.1/@issue.0"/>
   </product>
   <person username="anton"/>
   <person username="connor"/>
