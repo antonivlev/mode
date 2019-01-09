@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="ASCII"?>
-<BugTracker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="mockbugtracker" xmlns:_1="bugtracker" xsi:schemaLocation="mockbugtracker mock-metamodel.ecore">
-  <product name="win10">
-    <issue xsi:type="Bug" issueID="make the thing" isOpen="true">
-      <versions href="default.bugtracker#//@product.0/@version.2"/>
-      <blockedIssues xsi:type="_1:Bug" href="default.bugtracker#//@product.0/@issue.2"/>
-    </issue>
-    <issue xsi:type="Bug" issueID="UI breaks on startup" isOpen="true">
+<BugTracker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="bugtracker">
+  <product name="windows 10">
+    <version name="v1"/>
+    <version name="v2"/>
+    <issue xsi:type="Bug" issueID="ui doesnt work">
       <versions href="default.bugtracker#//@product.0/@version.0"/>
       <versions href="default.bugtracker#//@product.0/@version.1"/>
-      <blockedIssues xsi:type="_1:Bug" href="default.bugtracker#//@product.0/@issue.0"/>
+      <fixers href="default.bugtracker#//@person.0"/>
+      <comment commentID="comment0">
+        <reply commentID="reply0"/>
+        <reply commentID="reply1"/>
+      </comment>
+      <blockedIssues xsi:type="Bug" href="default.bugtracker#//@product.0/@issue.1"/>
+      <blockedIssues xsi:type="Enhancement" href="default.bugtracker#//@product.0/@issue.3"/>
     </issue>
-    <issue xsi:type="Bug" issueID="hop hey" isOpen="true">
+    <issue xsi:type="Bug" issueID="windows wont close">
       <versions href="default.bugtracker#//@product.0/@version.1"/>
-      <blockedIssues xsi:type="_1:Bug" href="default.bugtracker#//@product.0/@issue.3"/>
+      <fixers href="default.bugtracker#//@person.2"/>
+      <fixers href="default.bugtracker#//@person.1"/>
+      <comment commentID="comm12"/>
+      <blockedIssues xsi:type="Bug" href="default.bugtracker#//@product.0/@issue.2"/>
     </issue>
-    <issue xsi:type="Bug" issueID="ooh" isOpen="true">
-      <versions href="default.bugtracker#//@product.0/@version.2"/>
-      <blockedIssues xsi:type="_1:Enhancement" href="default.bugtracker#//@product.0/@issue.4"/>
-    </issue>
+    <issue xsi:type="Bug" issueID="buttons wont press"/>
+    <issue xsi:type="Enhancement"/>
   </product>
-  <product name="program 12">
-    <issue xsi:type="Bug" issueID="some other bug" isOpen="true"/>
-  </product>
+  <person username="anton"/>
+  <person username="connor"/>
+  <person username="jack"/>
+  <person username="alice"/>
 </BugTracker>

@@ -13,8 +13,36 @@ rule TransformProducts
   		"".println("transforming product: ", sourceProd.name);
 	  	targetProd.name = sourceProd.name;
 	 	targetProd.issue.addAll(sourceProd.issue.select(i|i.isOpen).equivalent()); 		
+	 	targetProd.version.addAll(sourceProd.version.equivalent()); 		
 	}
-	
+
+rule TransformPeople
+	transform sourcePerson : source!Person
+	to targetPerson :
+		tget!Person {
+	  		"".println("transforming person: ", sourcePerson.username);
+	  		targetPerson.username = sourcePerson.username;
+		}
+
+rule TransformComments
+	transform sourceComment : source!Comment
+	to targetComment :
+		tget!Comment {
+	  		"".println("transforming person: ", sourceComment.commentID);
+	  		targetComment.commentText = sourceComment.commentText;
+	  		targetComment.commentID = sourceComment.commentID;
+	  		
+	  		targetComment.reply.addAll(sourceComment.reply.equivalent());
+		}
+
+
+rule TransformVersion
+	transform sourceVersion : source!Version
+	to targetVersion :
+		tget!Version {
+	  		"".println("transforming version: ", sourceVersion.name);
+	  		targetVersion.name = sourceVersion.name;		
+		}
 
 rule TransformBugs 
   transform sourceBug : source!Bug
@@ -29,10 +57,12 @@ rule TransformBugs
 		targetBug.isOpen = sourceBug.isOpen;
 		targetBug.duplicates = sourceBug.duplicates;
 		targetBug.versions = sourceBug.versions;
-		targetBug.reportedBy = sourceBug.reportedBy;
+		// For some reason this line causes an internal error. Why? TODO
+		//targetBug.reportedBy = sourceBug.reportedBy;
 		targetBug.fixers = sourceBug.fixers; 		 		 		
 
-		targetBug.blockedIssues = sourceBug.blockedIssues; 		 		 		 		
+		targetBug.blockedIssues = sourceBug.blockedIssues;
+		targetBug.comment.addAll(sourceBug.comment.equivalent());
 	}
 
 rule TransformEnhancements 
@@ -51,12 +81,14 @@ rule TransformEnhancements
 	 	targetEnh.reportedBy = targetEnh.reportedBy;
 	 	targetEnh.fixers = targetEnh.fixers; 		 		 		
 	
-	 	targetEnh.blockedIssues = sourceEnh.blockedIssues; 		 		 		 		
+	 	targetEnh.blockedIssues = sourceEnh.blockedIssues;
+	 	targetEnh.comment.addAll(sourceEnh.comment.equivalent());		 		 		 		
 	}
 
 post {
 	var root : new tget!BugTracker;
 	root.product.addAll(tget!Product.all);
+	root.person.addAll(tget!Person.all);	
 	"finish transformation".println();
 }
 

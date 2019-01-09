@@ -27,12 +27,15 @@ abstract class Issue {
 	attr String title;
 	attr String description;
 	attr Boolean isOpen = true;
-	
+
+	@gmf.link(style="dot")	
 	ref Issue[*] duplicates;
 	@gmf.link(style="dot")
 	ref Version[*] versions;
-	
+
+	@gmf.link(style="dot")	
 	ref Person reportedBy;
+	@gmf.link(style="dot")
 	ref Person[*] fixers;
 
 	@gmf.compartment	
@@ -50,16 +53,18 @@ class Enhancement extends Issue {
 }
 
 
-
+@gmf.node(label="commentID")
 class Comment {
 	attr String commentID;
 	attr String commentText;
 	
 	@gmf.compartment
 	val Comment[*] reply;
+	@gmf.link(style="dot")	
 	ref Person author;
 }
 
+@gmf.node(label="username")
 class Person {
 	attr String username;
 }

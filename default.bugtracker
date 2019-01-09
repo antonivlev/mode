@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BugTracker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="bugtracker">
-  <product name="win10">
-    <version name="vers1"/>
-    <version name="vers2"/>
-    <version name="vers3"/>
-    <issue xsi:type="Bug" issueID="make the thing" versions="//@product.0/@version.2" blockedIssues="//@product.0/@issue.2"/>
-    <issue xsi:type="Bug" issueID="UI breaks on startup" versions="//@product.0/@version.0 //@product.0/@version.1" blockedIssues="//@product.0/@issue.0"/>
-    <issue xsi:type="Bug" issueID="hop hey" versions="//@product.0/@version.1" blockedIssues="//@product.0/@issue.3"/>
-    <issue xsi:type="Bug" issueID="ooh" versions="//@product.0/@version.2" blockedIssues="//@product.0/@issue.4"/>
-    <issue xsi:type="Enhancement" issueID="make things preety" isOpen="false"/>
+  <product name="windows 10">
+    <version name="v1"/>
+    <version name="v2"/>
+    <issue xsi:type="Bug" issueID="ui doesnt work" versions="//@product.0/@version.0 //@product.0/@version.1" reportedBy="//@person.1" fixers="//@person.0" blockedIssues="//@product.0/@issue.1 //@product.0/@issue.3">
+      <comment commentID="comment0" author="//@person.1">
+        <reply commentID="reply0" author="//@person.0"/>
+        <reply commentID="reply1" author="//@person.1"/>
+      </comment>
+    </issue>
+    <issue xsi:type="Bug" issueID="windows wont close" versions="//@product.0/@version.1" reportedBy="//@person.0" fixers="//@person.2 //@person.1" blockedIssues="//@product.0/@issue.2">
+      <comment commentID="comm12" author="//@person.2"/>
+    </issue>
+    <issue xsi:type="Bug" issueID="buttons wont press" reportedBy="//@person.2"/>
+    <issue xsi:type="Enhancement" issueID="make things green" reportedBy="//@person.2" fixers="//@person.1"/>
   </product>
-  <product name="program 12">
-    <issue xsi:type="Bug" issueID="some other bug"/>
+  <product name="windows 9">
+    <issue xsi:type="Bug" issueID="something closed" isOpen="false" reportedBy="//@person.3"/>
   </product>
-  <product name="hohohoho">
-    <issue xsi:type="Bug" issueID="bugiuwbde" isOpen="false"/>
-  </product>
+  <person username="anton"/>
+  <person username="connor"/>
+  <person username="jack"/>
+  <person username="alice"/>
 </BugTracker>
