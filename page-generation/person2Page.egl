@@ -1,0 +1,39 @@
+<style>
+html {
+	font-family: monospace;
+}
+table {
+    border-collapse: collapse;
+}
+table, td {
+    border: 1px solid #333
+}
+</style>
+
+
+<h3>Issues reported by or being fixed by [%=person.username%]</h3>
+[% var repIssues = Issue.all().select(issue|issue.reportedBy = person); %]
+[% var fixIssues = Issue.all().select(issue|issue.fixers.contains(person)); %]
+<a href="index.html"><- Back to products</a>
+<br><br>
+<table>
+  <tr>
+  	<td>Reported </td>
+  </tr>
+[%for (issue in repIssues) { %]
+  <tr>
+  	<td><a href="[%=issue.issueID%]_page.html">[%=issue.issueID%]</a></td>
+  </tr>
+[%}%]
+</table>
+<br><br>
+<table>
+  <tr>
+  	<td>Fixing</td>
+  </tr>
+[%for (issue in fixIssues) { %]
+  <tr>
+  	<td><a href="[%=issue.issueID%]_page.html">[%=issue.issueID%]</a></td>
+  </tr>
+[%}%]
+</table>

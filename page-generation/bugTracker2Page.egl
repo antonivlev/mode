@@ -1,6 +1,27 @@
+<style>
+html {
+	font-family: monospace;
+}
+table {
+    border-collapse: collapse;
+}
+table, td {
+    border: 1px solid #333
+}
+</style>
+
+
 <h3>Click on a product</h3>
-<ul>
 [%for (prod in tracker.product) { %]
   <li><a href="[%=prod.name%]_page.html">[%=prod.name%]</a>
+  [%for (v in prod.version) {%]
+  <br><a style="margin-left: 20px" href="[%=v.name%]_page.html">[%=v.name%]</a>
+  [%}%]  
+[%}%]
+</ul>
+<br><br>
+<h3>Click on a person</h3>
+[%for (p in tracker.person) { %]
+  <li><a href="[%=p.username%]_page.html">[%=p.username%]</a>
 [%}%]
 </ul>

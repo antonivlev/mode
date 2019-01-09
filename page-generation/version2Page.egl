@@ -1,0 +1,24 @@
+<style>
+html {
+	font-family: monospace;
+}
+table {
+    border-collapse: collapse;
+}
+table, td {
+    border: 1px solid #333
+}
+</style>
+
+[% var prod = Product.all().select(p|p.version.contains(v)).first(); %]
+<h3>Issues related to version [%=v.name%] of product [%=prod.name%]</h3>
+[% var issues = Issue.all().select(issue|issue.versions.contains(v)); %]
+<a href="index.html"><- Back to products</a>
+<br><br>
+<table>
+[%for (issue in issues) { %]
+  <tr>
+  	<td><a href="[%=issue.issueID%]_page.html">[%=issue.issueID%]</a></td>
+  </tr>
+[%}%]
+</table>

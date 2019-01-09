@@ -1,9 +1,29 @@
-<h1>[%=product.name%]</h1>
-<h3></h3>
-<ul>
+<style>
+html {
+	font-family: monospace;
+}
+table {
+    border-collapse: collapse;
+}
+table, td {
+    border: 1px solid #333
+}
+</style>
+
+<h1>Issues for: [%=product.name%]</h1>
+<a href="index.html"><- Back to products</a>
+<br><br>
+<table>
+  <tr>
+  	<td>Issue ID</td>
+  	<td>Number of transitive blockings</td>
+  </tr>
 [%var sortedIssues = product.issue.sortBy( issue | -issue.closure(issue | issue.blockedIssues).size() ); %]
 [%for (issue in sortedIssues) { %]
   [%var num_blocks_total = issue.closure(issue | issue.blockedIssues).size(); %]
-  <li><a href="[%=issue.issueID%]_page.html">[%=issue.issueID%] [%=num_blocks_total%]</a>
+  <tr>
+  	<td><a href="[%=issue.issueID%]_page.html">[%=issue.issueID%]</a></td>
+  	<td>[%=num_blocks_total%]</td>
+  </tr>
 [%}%]
-</ul>
+</table>

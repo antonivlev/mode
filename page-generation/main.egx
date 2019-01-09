@@ -9,3 +9,34 @@ rule Product2Page
 		template: "product2Page.egl"
 		target: "gen/"+product.name+"_page.html"
 	}
+	
+rule Person2Page
+	transform person : Person {
+		template: "person2Page.egl"
+		target: "gen/"+person.username+"_page.html"
+	}
+	
+rule Person2Page
+	transform person : Person {
+		template: "person2Page.egl"
+		target: "gen/"+person.username+"_page.html"
+	}
+
+rule Version2Page
+	transform v : Version {
+		template: "version2Page.egl"
+		target: "gen/"+v.name+"_page.html"
+	}
+	
+rule Bug2Page
+	transform i : Bug {
+		template: "issue2Page.egl"
+		target: "gen/"+i.issueID+"_page.html"	
+	}
+	
+rule Enhancement2Page
+	transform i : Enhancement {
+		template: "issue2Page.egl"
+		target: "gen/"+i.issueID+"_page.html"	
+	}
+	

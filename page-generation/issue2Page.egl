@@ -1,0 +1,54 @@
+<style>
+html {
+	font-family: monospace;
+}
+table {
+    border-collapse: collapse;
+}
+table, td {
+    border: 1px solid #333
+}
+</style>
+
+<h1>Issue: [%=i.issueID%]</h1>
+<a href="index.html"><- Back to products</a>
+<br><br>
+<table>
+  <tr>
+  	<td>ID: </td>
+  	<td>[%=i.issueID%]</td>
+  </tr>
+  <tr>
+  	<td>Title: </td>
+  	<td>[%=i.title%]</td>
+  </tr>
+  <tr>
+	<td>Description: </td>
+  	<td>[%=i.description%]</td>
+  </tr>
+  <tr>
+	<td>Open?: </td>
+  	<td>[%=i.isOpen%]</td>
+  </tr>
+</table>
+
+<br>
+
+<h4>Comments</h4>
+<table>
+	[%for (comment in i.comment) {%]
+		<tr>
+			<td>[%=comment.author.username %]:</td>
+			<td>[%=comment.commentText %]</td>
+		</tr>
+		<tr><td>Replies:</td></tr>
+		[%for (reply in comment.reply) {%]
+			<tr>
+				<td></td>
+				<td>[%=reply.author.username %]:</td>
+				<td>[%=reply.commentText %]</td>			
+			</tr>
+		[%}%]
+	[%}%]	
+</table>
+
