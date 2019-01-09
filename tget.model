@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<BugTracker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="bugtracker" xsi:schemaLocation="bugtracker bug-tracker.ecore">
+<BugTracker xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="bugtracker">
   <product name="windows 10">
     <version name="v1"/>
     <version name="v2"/>

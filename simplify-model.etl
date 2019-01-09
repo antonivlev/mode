@@ -1,5 +1,3 @@
-// TODO: add versions, people, comments
-
 pre {
   "start transformations".println();
 }
@@ -58,7 +56,7 @@ rule TransformBugs
 		targetBug.isOpen = sourceBug.isOpen;
 		targetBug.duplicates = sourceBug.duplicates;
 		targetBug.versions = sourceBug.versions;
-		// For some reason this line causes an internal error. Why? TODO
+		// For some reason this line causes an internal casting error. Why? TODO
 		//targetBug.reportedBy = sourceBug.reportedBy;
 		targetBug.fixers = sourceBug.fixers; 		 		 		
 
